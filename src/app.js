@@ -28,7 +28,7 @@ dotenv.config()
 app.get("", (req, res) => {
     res.render("index", {
         "title":"Weather",
-        "name":"Jeanne"})
+        "name":"Jeanne Lane"})
 })
 
 app.get("/about", (req, res) => {

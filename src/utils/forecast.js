@@ -11,8 +11,10 @@ const forecast = (latitude, longitude, callback) => {
             callback("error while processing data on server", undefined)
         } else {
             const current_obj = body.current
-            const {weather_descriptions:wx_desc, feelslike:app_tmp, temperature:amb_tmp} = current_obj
-            const forecast_str = wx_desc[0] + ". It is currently " + amb_tmp + " degrees out. It feels like " + app_tmp + " degrees out."
+            const {weather_descriptions:wx_desc, feelslike:app_tmp, temperature:amb_tmp, wind_speed:w_sp,
+             wind_dir:w_dir, pressure:prs, humidity: humid} = current_obj
+            var forecast_str = wx_desc[0] + ". It is currently " + amb_tmp + " degrees out. It feels like " + app_tmp + " degrees out."
+            forecast_str = forecast_str + "The wind is " + w_sp + " MPH out of the " + w_dir + ". The humidity is " + humid + "%. The pressure is "  + prs + " mb."
             callback(undefined, forecast_str)
         }
     }
